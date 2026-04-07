@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Registration</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1><b>Student Registration</b></h1>
+        <form id="registrationForm">
+            <fieldset>
+                <legend>Personal Details</legend>
+
+                <label for="fullname"> Full Name: </label>
+                <input type="text" id="fullname" name="fullname" required><br>
+
+                <label for="email">University Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="age">Age: </label>
+                <input type="number" id="age" name="age" max="28" min="18" required><br>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Academic Information</legend>
+
+                <label for="course">Select Course: </label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>--Choose Course--</option>
+                    <optgroup label="Engineering">
+                        <option value="cse">CSE - Core</option>
+                        <option value="cse_cyber">CSE - Cybersecurity</option>
+                        <option value="cse_aiml">CSE - AIML</option>
+                        <option value="cse_data_science">CSE - Data Science/Analytics </option>
+                    </optgroup>
+                    <optgroup label="Medical">
+                        <option value="mbbs">M.B.B.S</option>
+                        <option value="dentistry">Dentistry</option>
+                    </optgroup>
+                </select>
+
+                <label for="event">Select Event: </label>
+                <select id="event" name="event" required>
+                    <option value="" disabled selected>--Choose Your Event--</option>
+                    <option value="solosinging">Solo Singing</option>
+                    <option value="rockband">Rock Band Competition </option>
+                    <option value="classicalnight">Classical Night </option>
+                </select>
+
+                <label for="comments">
+                    Describe your Abilities and skills regarding your interested performance.
+                </label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Enter here..."></textarea>
+            </fieldset>
+
+            <div class="form-actions">
+                <p>Form Status: <output id="formOutput">Ready to submit.</output></p>
+                <button type="submit" id="submitBtn">Register</button>
+                <button type="reset">Clear Form</button>
+            </div>  
+        </form>
+        <script>
+            document.getElementById("registrationForm").addEventListener("submit", async function(e){
+
+            e.preventDefault();
+            const data = {
+                fullname: document.getElementById("fullname").value,
+                email: document.getElementById("email").value,
+                age: document.getElementById("age").value,
+                course: document.getElementById("course").value,
+                event: document.getElementById("event").value,
+                comments: document.getElementById("comments").value
+                };
+
+        try {
+            const response = await fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.text();
+
+            document.getElementById("formOutput").textContent = result;
+            document.getElementById("formOutput").style.color = "green";
+
+            document.getElementById("registrationForm").reset();
+
+            loadData(); // 👈 ADD THIS LINE
+
+        } catch (error) {
+            document.getElementById("formOutput").textContent = "Server error ❌";
+            document.getElementById("formOutput").style.color = "red";
+        }
+    });
+
+
+    // 👇 YE NAYA FUNCTION ADD KAR
+    async function loadData() {
+        try {
+            const res = await fetch("http://localhost:3000/registrations");
+            const data = await res.json();
+
+            console.log("All registrations:", data); // abhi console me dikhega
+        } catch (err) {
+            console.log(err);
+        }
+        }
+
+
+            loadData();
+        </script>
+    <!----------    <script>
+            document.getElementById("registrationForm").addEventListener("submit", async function(e){
+
+                e.preventDefault();
+                const data = {
+                    fullname: document.getElementById("fullname").value,
+                    email: document.getElementById("email").value,
+                    age: document.getElementById("age").value,
+                    course: document.getElementById("course").value,
+                    event: document.getElementById("event").value,
+                    comments: document.getElementById("comments").value
+                    };
+
+            try {
+                const response = await fetch("http://localhost:3000/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                        },
+                    body: JSON.stringify(data)
+                });
+    
+                const result = await response.text();
+    
+                document.getElementById("formOutput").textContent = result;
+                document.getElementById("formOutput").style.color = "green";
+
+            } catch (error) {
+                document.getElementById("formOutput").textContent = "Server error ❌";
+                document.getElementById("formOutput").style.color = "red";
+                }
+            });
+        </script> ----->
+    </body>
+</html>
