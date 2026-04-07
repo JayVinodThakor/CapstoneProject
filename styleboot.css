@@ -1,0 +1,25 @@
+body { margin: 0; padding: 0; }
+/*Header And Footer*/
+    header { font-size: 20px; background-color: darkblue; color: white; padding: 20px; text-align: center; }
+    footer { background-color: darkblue; color: white; text-align: center;padding: 10px; }
+/*Navigation bar*/
+    .navbar1 { background-color: cyan; padding: 15px;}
+    .navbar1 a {color: black; text-align: center; padding: 15px 25px; 
+        text-decoration: none; transition: background-color 0.3s;}
+    .navbar1 a:hover { background-color: rgb(255, 125, 125); }
+/*Elements*/
+    section { padding: 20px; }
+    article { margin-bottom: 20px; }
+
+/*======= CSS for Logo ======*/
+    .unilogo{ width:60px; transition: transform 0.3s ease; }
+    .unilogo:hover{transform: scale(1.2); }
+/*Card Design*/
+    .card { background-color: antiquewhite; width: 20rem; margin: 20px; padding: 10px; border-radius: 16px; 
+               overflow: hidden; transition: transform 0.25s ease; }
+    .card:hover { transform: translateY(-5px);}
+    .card-img-top { height: 250px; width:auto; }
+    .card-title { font-size: 20px;}
+    .card-text { font-size: 16px; }
+    .card .btn-primary {background-color: coral ; font-family: 'Times New Roman';width: 100%;
+                border-color: azure;  border-radius: 8px; padding: 10px;}

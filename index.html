@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Karnavati University Music Fest</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 0; }
+        header { font-size: 20px; background-color: darkblue; color: white; padding: 5px; text-align: center; }
+        .navbar { background-color: cyan; padding: 15px;}
+        .navbar a {color: black; text-align: center; padding: 15px 25px; 
+            text-decoration: none; transition: background-color 0.3s;}
+        .navbar a:hover { background-color: rgb(255, 0, 156); }
+        section { padding: 20px; }
+        article { margin-bottom: 20px; }
+        footer { background-color: darkblue; color: white; text-align: center;padding: 10px; }
+        /*======= CSS for Logo ======*/
+        .unilogo{ width:60px; transition: transform 0.3s ease; }
+        .unilogo:hover{transform: scale(1.4); }
+    </style>
+    <!--Javascript coding:-->
+    <script>
+    const now = new Date();
+    const DateandTime = now.toLocaleString(); 
+    alert("Welcome to Karnavati University Music Fest 2025! \n Current Date & Time: " + DateandTime);
+    //console array:
+    const courses = ["Programming for problem solving", "Engineering Drawing and Workshop Practices", 
+        "Introduction to Web Programming", "Engineering Mathematics", "Introduction to AI"];
+    for (let i = 0; i < courses.length; i++) 
+        { console.log("Course " + (i + 1) + ": " + courses[i]); }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1><img src="KUlogo.jpg" alt="Karnavati University logo" class="unilogo"> Karnavati University Music Fest 2025</h1>
+        <p><i>Celebrate Music, Culture and Talent</b></i></p>
+    </header>
+    <nav class="navbar" style="text-align: center;">
+        <a href="about.html">About</a>
+        <a href="EventsPage.html">Events</a>
+        <a href="form\practform.html">Register</a>
+                <script>
+            function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+                });
+            }
+        </script>
+        <a href="#" onclick="scrollToBottom()">Contact</a>
+    </nav>
+    <main style="background-image: url(Music4.jpg); color:whitesmoke; background-size: cover; background-position: center;">
+        <section>
+            <h2><i><u>About The Events:</u></i></h2>
+            <p style="font-family: 'Times New Roman'; font-size: 20px;">The Karnavati University Music Fest is an annual event 
+                where students showcase their musical talents. Join us for a day filled with melodies, 
+                rhythms, and performances from different genres.</p>
+        </section>
+
+        <section style="font-family:'Times New Roman';">
+            <h2><u><i><b>Event Highlights</b></i></u></h2>
+            <article>
+                <h2 style="font-size: 20px;">Classical Night</h2>
+                <p style="font-size: 18px;">Experience the magic of Indian Classical Music with talented students and guest performers.</p>
+            </article>
+            <article>
+                <h2 style="font-size: 20px;">Rock Band Competition</h2>
+                <p style="font-size: 18px;">Cheer for your favorite bands as they battle it out with electrifying performances.</p>
+            </article>
+            <article>
+                <h2 style="font-size: 20px;">Solo Singing</h2>
+                <p style="font-size: 18px;">Melodious solo singing performances by students from different courses.</p>
+            </article>
+        </section>
+    </main>
+    <main>
+        <section style="background-color: beige;">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:musicfest@karnavati.edu.in">musicfest@karnavati.edu.in </a></p>
+            <p>Phone:<a href="#phone"> +91 9898553910</a></p>
+        </section>
+    </main>
+    <footer>
+        <p> 2025 Karnavati University | Official Page | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
